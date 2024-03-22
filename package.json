@@ -1,0 +1,15 @@
+{
+  "name": "hotel-management-api-v2",
+  "version": "1.0.0",
+  "description": "This is version 2 of the apis I developed in version 1 with more modularity, partitioning, etc.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hotel-management-api-v2"
+  },
+  "author": "iPrevail",
+  "license": "ISC"
+}
