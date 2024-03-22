@@ -7,13 +7,15 @@ like CRUD operations*/
 
 class RoomtypeService {
     // create a roomtype
-  async create() {}
+  async create(rootypeData) {}
     // edit a roomtype
-  async update() {}
+  async update(id, roomtypeUpdate) {}
     // delete a roomtype
-  async delete() {}
+  async delete(id) {}
     // get a single roomtype
-  async fetchOne() {}
+  async fetchOne(id) {}
     // get all roomtypes
-  async fetchAll() {}
+  async fetch(filter) {}
 }
+
+module.exports = RoomtypeService;
