@@ -4,23 +4,23 @@ This is the section of my application that handles client request received from 
 */
 class RoomController{
     // create room
-    async createRoom (req, res) {
+    async createRoom(req, res) {
+        await RoomService.create
+    }
+
+    async updateRoom(req, res) {
 
     }
 
-    async updateRoom (req, res) {
+    async deleteRoom(req, res) {
 
     }
 
-    async deleteRoom (req, res) {
-
-    }
-
-    async fetchOne (req, res) {
+    async fetchOne(req, res) {
         
     }
 
-    async fetchMany (req, res) {
+    async fetchMany(req, res) {
         
     }
 }
