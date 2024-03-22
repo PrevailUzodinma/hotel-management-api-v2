@@ -11,5 +11,11 @@
     "url": "https://github.com/hotel-management-api-v2"
   },
   "author": "iPrevail",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "curl": "^0.1.4",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.1",
+    "mongoose": "^8.2.3"
+  }
 }
