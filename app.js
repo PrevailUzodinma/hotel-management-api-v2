@@ -10,6 +10,8 @@ const port = process.env.PORT || 3838;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+app.use('/api/v1/', router);
+
 app.listen(port, () =>{
     console.log(`Server has started running on port ${port}`);
 })
