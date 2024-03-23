@@ -1,21 +1,28 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const router = require('./routes/index.routes');
-const curl = require('curl');
-const mongoose = require('mongoose')
-require('dotenv').config();
+const router = require("./routes/index.routes");
+const curl = require("curl");
+const mongoose = require("mongoose");
+require("dotenv").config();
 const port = process.env.PORT || 3838;
 
+//Allow requests from any origin
+app.use(cors({}));
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.DBURI)
-.then(console.log("Connected to MongoDB"))
-.catch(console.log("Error connecting to MongoDB"));
+mongoose
+  .connect("mongodb://localhost/hotelDB_2")
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch(() => {
+    console.log("Error connecting to MongoDB");
+  });
 
-app.use('/api/v1/', router);
+app.use("/api/v1/", router);
 
-app.listen(port, () =>{
-    console.log(`Server has started running on port ${port}`);
-})
+app.listen(port, () => {
+  console.log(`Server has started running on port ${port}`);
+});
