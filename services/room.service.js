@@ -6,15 +6,27 @@ like CRUD operations*/
 // making these function calls asynchronous because database queries take some time
 class RoomService {
     // create a room
-    async create(roomData) {}
+    async create(roomData) {
+        return await Room.create(roomData);
+    }
     // edit a room
-    async update(id, roomUpdate) {}
+    async update(id, roomUpdate) {
+        return await Room.findByIdAndUpdate(id, roomUpdate, {
+            new: true
+        })
+    }
     // delete a room
-    async delete(id) {}
+    async delete(id) {
+        return await Room.findByIdAndDelete(id)
+    }
     // fetch a single room
-    async fetchOne(id) {}
+    async fetchOne(id) {
+        return await Room.findById(id)
+    }
     // fetch all rooms
-    async fetch(filter) {}
+    async fetch(filter) {
+        return await Room.find(filter)
+    }
 }
 
-module.exports = RoomService;
+module.exports = new RoomService();
