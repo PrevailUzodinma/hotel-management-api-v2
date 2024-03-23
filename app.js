@@ -10,6 +10,10 @@ const port = process.env.PORT || 3838;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+mongoose.connect(process.env.DBURI)
+.then(console.log("Connected to MongoDB"))
+.catch(console.log("Error connecting to MongoDB"));
+
 app.use('/api/v1/', router);
 
 app.listen(port, () =>{
