@@ -5,28 +5,37 @@ This is the section of my application that handles client request received from 
 class RoomtypeController{
     // create room
     async createRoomtype(req, res) {
-        const reqBody = req.body
-
-        // Check if the roomtype exist
-        const existingRoomtype = await RoomtypeService.fetchOne({
-            name: reqBody.name
-        })
-
-        if(existingRoomtype){
-            res.status(403).json({
+        try {
+            const reqBody = req.body;
+    
+            // Check if the room exists
+            const existingRoomtype = await RoomtypeService.fetchOne({
+                name: reqBody.name
+            });
+    
+            if (existingRoomtype) {
+                return res.status(403).json({
+                    success: false,
+                    message: 'Room already exists'
+                });
+            }
+    
+            // If not, create the roomtype and send a response
+            const newRoomtype = await RoomtypeService.create(reqBody);
+    
+            return res.status(201).json({
+                success: true,
+                message: 'Roomtype created successfully',
+                data: newRoomtype
+            });
+        } catch (error) {
+            // Handle errors
+            console.error('Error creating room:', error);
+            return res.status(500).json({
                 success: false,
-                message: 'Roomtype already exist'
-            })
+                message: 'Internal server error'
+            });
         }
-
-        // If not, we can create the roomtype and send a response
-        const newRoomtype = await RoomtypeService.create(reqBody)
-
-        res.status(201).json({
-            success: true,
-            message: 'Roomtype created successfully',
-            data: newRoomtype
-        })
     }
 
     async updateRoomtype(req, res) {

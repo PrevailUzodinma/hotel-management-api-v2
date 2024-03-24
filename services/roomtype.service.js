@@ -22,9 +22,13 @@ class RoomtypeService {
     return await Roomtype.findByIdAndDelete(id)
   }
     // get a single roomtype
-  async fetchOne(id) {
+  async fetchOneById(id) {
     return await Roomtype.findById(id)
   }
+  // get a room by specific parametrt
+  async fetchOne(query) {
+    return await Roomtype.findOne(query);
+}
     // get all roomtypes
   async fetch(filter) {
     return await Roomtype.find(filter)

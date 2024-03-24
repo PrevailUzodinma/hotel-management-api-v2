@@ -4,13 +4,13 @@ const router = require("./routes/index.routes");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
-const port = process.env.PORT || 3838;
+const port = process.env.PORT || 3000;
 
 //Allow requests from any origin
 app.use(cors({}));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 mongoose
   .connect("mongodb://localhost/hotelDB_2")
