@@ -6,9 +6,11 @@ const mongoose = require("mongoose");
 const authenticate = require('./middlewares/authenticate');
 const authorize =require('./middlewares/authorize');
 const validate = require('./middlewares/validate');
+const connectDB = require("./connectDB");
 
 require("dotenv").config();
 const port = process.env.PORT || 3000;
+const db_uri = process.env.DB_URI;
 
 
 //Allow requests from any origin
@@ -17,14 +19,7 @@ app.use(cors({}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose
-  .connect("mongodb://localhost/hotelDB_2")
-  .then(() => {
-    console.log("Connected to MongoDB");
-  })
-  .catch(() => {
-    console.log("Error connecting to MongoDB");
-  });
+connectDB();
 
 app.use(authenticate);
 app.use(authorize);
