@@ -1,10 +1,10 @@
-const Joi = require('joi').extend(require('@hapi/joi-oid'));
+const Joi = require('joi');
 
 
 const roomValidationSchema = Joi.object({
     name: Joi.string().required(),
-    roomtype: Joi.objectId().required(),
-    price: Joi.number()
+    roomtype: Joi.string().required(),
+    price: Joi.number().required()
 });
 
 module.exports = roomValidationSchema;

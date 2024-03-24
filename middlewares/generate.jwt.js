@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
 const generateJwtSecret = (length) => {
-    return jwt.sign({}, jwt.generateSecret({ length }));
+    return crypto.randomBytes(length).toString('base64');
 };
 
 const jwtSecret = generateJwtSecret(32);
