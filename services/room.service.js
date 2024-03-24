@@ -19,9 +19,13 @@ class RoomService {
     async delete(id) {
         return await Room.findByIdAndDelete(id)
     }
-    // fetch a single room
-    async fetchOne(id) {
+    // fetch a single room by id
+    async fetchOneById(id) {
         return await Room.findById(id)
+    }
+    // fetch a single room by any filter
+    async fetchOne(query) {
+        return await Roomtype.findOne(query);
     }
     // fetch all rooms
     async fetch(filter) {
