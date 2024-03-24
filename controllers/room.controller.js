@@ -113,13 +113,13 @@ class RoomController {
           success: false,
           message: "Room to fetch does not exist",
         });
+    }
 
         res.status(200).json({
           success: true,
           message: "Room fetched successfully",
           data: existingRoom,
         });
-      }
     } catch (error) {
       // Handle errors
       console.error("Error creating room:", error);

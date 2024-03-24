@@ -25,7 +25,7 @@ class RoomService {
     }
     // fetch a single room by any filter
     async fetchOne(query) {
-        return await Roomtype.findOne(query);
+        return await Room.findOne(query);
     }
     // fetch all rooms
     async fetch(filter) {
