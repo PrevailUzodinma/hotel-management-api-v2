@@ -31,8 +31,8 @@ class UserService {
     if (!isPasswordValid) {
       throw new Error("Invalid Password");
     }
-
-    return existingUser;
+    const token = jwt.sign({userId: existingUser._id}, process.env.JWT_SECRET)
+    return token;
   }
   
   // edit a user

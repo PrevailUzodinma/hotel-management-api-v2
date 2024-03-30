@@ -73,9 +73,7 @@ class RoomController {
     try {
       const roomId = req.params.id;
       //Check iif the room to delete is in the database
-      const existingRoom = await RoomService.fetchOneById({
-        _id: roomId,
-      });
+      const existingRoom = await RoomService.fetchOneById(roomId);
       if (!existingRoom) {
         res.status(403).json({
           success: false,
@@ -104,9 +102,7 @@ class RoomController {
     try {
       const roomId = req.params.id;
       // Check if room to fetch exists is in the database
-      const existingRoom = await RoomService.fetchOneById({
-        _id: roomId,
-      });
+      const existingRoom = await RoomService.fetchOneById(roomId);
 
       if (!existingRoom) {
         res.status(403).json({
